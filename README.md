@@ -5,6 +5,8 @@ Publish markdown to medium. Extracted from @jxnblk's
 [script](https://github.com/jxnblk/writing/blob/gh-pages/medium.js) (thank him
 if you see him).
 
+![markdown to medium example gif](./medium.gif)
+
 ## Getting Started
 1. [Get a third party integration token on medium][register]
 2. install `markdown-to-medium`
