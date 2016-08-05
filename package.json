@@ -1,0 +1,38 @@
+{
+  "name": "markdown-to-medium",
+  "version": "1.0.0",
+  "description": "Publish markdown to medium",
+  "main": "index.js",
+  "scripts": {
+    "deps": "dependency-check . && dependency-check . --extra --no-dev",
+    "test": "standard && npm run deps && NODE_ENV=test node test",
+    "test:cov": "standard && npm run deps && NODE_ENV=test istanbul cover test.js"
+  },
+  "repository": "yoshuawuyts/markdown-to-medium",
+  "keywords": [
+    "medium",
+    "markdown",
+    "cli",
+    "publish"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cliclopts": "^1.1.1",
+    "colors": "^1.1.2",
+    "conf": "^0.11.2",
+    "front-matter": "^2.1.0",
+    "medium-sdk": "0.0.3",
+    "minimist": "^1.2.0",
+    "open": "0.0.5",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "dependency-check": "^2.6.0",
+    "istanbul": "^0.4.4",
+    "standard": "^7.1.2",
+    "tape": "^4.6.0"
+  },
+  "bin": {
+    "markdown-to-medium": "./bin/cli.js"
+  }
+}

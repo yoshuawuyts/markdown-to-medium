@@ -1,0 +1,13 @@
+Usage: markdown-to-medium <path to markdown>
+
+Options:
+  -h, --help        Output usage information
+  -v, --version     Output version number
+  -t, --token       Pass in the user token
+  -i, --id          Pass in the user id
+
+Examples:
+  $ markdown-to-medium ./foobar.md   # Publish markdown to medium
+
+Docs: https://github.com/yoshuawuyts/markdown-to-medium
+Bugs: https://github.com/yoshuawuyts/markdown-to-medium/issues
