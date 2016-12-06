@@ -37,14 +37,14 @@ function main (options, done) {
   const matter = frontMatter(src)
   const title = matter.attributes.title
   const tags = matter.attributes.tags
-  const canonicalUrl = `http://yoshuawuyts.com/writing/${slug}`
+  const canonicalUrl = options.canonicalUrl || ""
 
   const content = `
   # ${title}
 
   ${matter.body}
 
-  *Cross-posted from [https://github.com/yoshuawuyts/writing](${canonicalUrl})*
+  *Cross-posted from [${canonicalUrl}](${canonicalUrl})*
   `
 
   client.getUser((err, user) => {
