@@ -39,13 +39,17 @@ function main (options, done) {
   const tags = matter.attributes.tags
   const canonicalUrl = options.canonicalUrl || ""
 
-  const content = `
+  let content = `
   # ${title}
 
   ${matter.body}
 
-  *Cross-posted from [${canonicalUrl}](${canonicalUrl})*
   `
+  if (canonicalUrl.length) {
+    content += `
+    *Cross-posted from [${canonicalUrl}](${canonicalUrl})*
+    `
+  }
 
   client.getUser((err, user) => {
     if (err) {
