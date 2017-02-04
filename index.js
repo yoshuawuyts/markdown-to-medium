@@ -12,6 +12,7 @@ module.exports = main
 
 // publish a markdown file to medium
 function main (options, done) {
+  'use strict'
   const token = options.token
   const filename = options.filename
 
