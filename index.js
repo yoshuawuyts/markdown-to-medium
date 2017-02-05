@@ -12,7 +12,6 @@ module.exports = main
 
 // publish a markdown file to medium
 function main (options, done) {
-  'use strict'
   const token = options.token
   const filename = options.filename
 
@@ -40,7 +39,7 @@ function main (options, done) {
   const tags = matter.attributes.tags
   const canonicalUrl = options.canonicalUrl || ""
 
-  let content = `
+  var content = `
   # ${title}
 
   ${matter.body}
