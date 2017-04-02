@@ -1,7 +1,7 @@
 # markdown-to-medium [![stability][0]][1]
 [![npm version][2]][3] [![downloads][8]][9] [![js-standard-style][10]][11]
 
-Publish markdown to medium. Extracted from @jxnblk's
+Publish markdown to Medium. Extracted from @jxnblk's
 [script](https://github.com/jxnblk/writing/blob/gh-pages/medium.js) (thank him
 if you see him).
 
@@ -9,10 +9,10 @@ if you see him).
 
 ## Getting Started
 1. [Get a third party integration token on medium][register]
-2. install `markdown-to-medium`
-2. copy the token to the clipboar
-3. create an article with the token passed through `--token`
-4. the token is now stored locally for future use, rinse repeat
+2. Install `markdown-to-medium`
+2. Copy the token to the clipboard
+3. Create an article with the token passed through `--token`
+4. The token is now stored locally for future use, rinse repeat
 
 ## Usage
 ```txt
