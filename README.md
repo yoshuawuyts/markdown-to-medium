@@ -22,6 +22,7 @@ Options:
   -h, --help        Output usage information
   -v, --version     Output version number
   -t, --token       Pass in the user token, stored after first use
+  --publication     Publish to a Medium publication
 
 Examples:
   $ markdown-to-medium ./foobar.md   # Publish markdown to medium

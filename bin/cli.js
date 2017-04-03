@@ -21,7 +21,8 @@ const opts = cliclopts([
   { name: 'help', abbr: 'h', boolean: true },
   { name: 'version', abbr: 'v', boolean: true },
   { name: 'token', abbr: 't', string: true },
-  { name: 'canonicalUrl', abbr: 'u', string: true}
+  { name: 'canonicalUrl', abbr: 'u', string: true },
+  { name: 'publication', string: true }
 ])
 
 const argv = minimist(process.argv.slice(2), opts.options())

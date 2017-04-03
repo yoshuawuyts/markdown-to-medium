@@ -5,6 +5,7 @@ Options:
   -v, --version     Output version number
   -t, --token       Pass in the user token
   -i, --id          Pass in the user id
+  --publication     Publish to a Medium publication
 
 Examples:
   $ markdown-to-medium ./foobar.md   # Publish markdown to medium
