@@ -4,6 +4,7 @@ const medium = require('medium-sdk')
 const assert = require('assert')
 const open = require('open')
 const fs = require('fs')
+const getTitle = require('get-md-title')
 
 require('colors') // I guess this is extending strings :/
 
@@ -32,7 +33,7 @@ function main (options, done) {
   }
 
   const matter = frontMatter(src)
-  const title = options.title || matter.attributes.title
+  let title = options.title || matter.attributes.title
   const tags = options.tags || matter.attributes.tags
   const publication = options.publication || matter.attributes.publication
   const canonicalUrl = options.canonicalUrl || matter.attributes.canonicalUrl || ''
@@ -43,6 +44,12 @@ function main (options, done) {
   ${matter.body}
 
   `
+
+  if (!title && getTitle(src)) {
+    title = getTitle(src).text
+    content = matter.body
+  }
+
   if (canonicalUrl.length) {
     content += `
     *Cross-posted from [${canonicalUrl}](${canonicalUrl})*
