@@ -21,6 +21,7 @@
     "colors": "^1.1.2",
     "conf": "^0.11.2",
     "front-matter": "^2.1.0",
+    "get-md-title": "^1.0.4",
     "medium-sdk": "0.0.3",
     "minimist": "^1.2.0",
     "open": "0.0.5",

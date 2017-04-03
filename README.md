@@ -60,6 +60,9 @@ You can do it, you're witty and smart and charming and
 Note that `tags`, `canonicalUrl`, and `publication` are optional, and that
 `created` is not passed through to Medium.
 
+If there is no `YAML` frontmatter, you can also specify the title using a first
+level markdown header, such as `# Title`, on the first line of the file.
+
 ## Installation
 ```sh
 $ npm install --global markdown-to-medium
