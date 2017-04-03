@@ -1,4 +1,4 @@
-
+//from https://github.com/jxnblk/writing/blob/gh-pages/medium.js
 const frontMatter = require('front-matter')
 const medium = require('medium-sdk')
 const assert = require('assert')
@@ -39,7 +39,9 @@ function main (options, done) {
 
   let content = `
   # ${title}
+
   ${matter.body}
+
   `
   if (canonicalUrl.length) {
     content += `
@@ -51,6 +53,7 @@ function main (options, done) {
     if (err) {
       throw new Error(err)
     }
+
     console.log(`Authenticated as ${user.username}`.blue)
     const options={
         userId: user.id,
@@ -62,28 +65,33 @@ function main (options, done) {
         publishStatus: 'draft'
     };
     const successMsg=`Draft post "${title}" published to Medium.com`.green;
-    publication?client.getPublicationsForUser({userId:user.id}, (err, publications)=>{
-        if (err) {
+    if(publication){
+        client.getPublicationsForUser({userId:user.id}, (err, publications)=>{
+          if (err) {
             throw new Error(err)
-        }
-        const myPub=publications.filter((val)=>{return val.name===publication});
-        if(myPub.length===0){
+          }
+          const myPub=publications.filter((val)=>{return val.name===publication});
+          if(myPub.length===0){
             throw new Error("No publication by that name!");
-        }
-        client.createPostInPublication(Object.assign(options, {publicationId:myPub[0].id}), (err, post) => {
+          }
+          client.createPostInPublication(Object.assign(options, {publicationId:myPub[0].id}), (err, post) => {
             if (err) {
                 throw new Error(err)
             }
             console.log(successMsg)
             open(post.url)
-        })
-    }):
-    client.createPost(options, (err, post) => {
-      if (err) {
-        throw new Error(err)
-      }
-      console.log(successMsg)
-      open(post.url)
-    })
+          })
+      })
+    }
+    else{
+      client.createPost(options, (err, post) => {
+        if (err) {
+          throw new Error(err)
+        }
+        console.log(successMsg)
+        open(post.url)
+      })
+    }
+    
   })
 }
