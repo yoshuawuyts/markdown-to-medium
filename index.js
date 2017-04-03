@@ -13,7 +13,6 @@ module.exports = main
 function main (options, done) {
   const token = options.token
   const filename = options.filename
-  const publication = options.publication
 
   assert.equal(typeof token, 'string', 'markdown-to-medium: token should be a string')
 
@@ -35,6 +34,7 @@ function main (options, done) {
   const matter = frontMatter(src)
   const title = matter.attributes.title
   const tags = matter.attributes.tags
+  const publication = options.publication || matter.attributes.publication
   const canonicalUrl = options.canonicalUrl || ''
 
   let content = `
