@@ -1,5 +1,4 @@
 // from https://github.com/jxnblk/writing/blob/gh-pages/medium.js
-
 const frontMatter = require('front-matter')
 const medium = require('medium-sdk')
 const assert = require('assert')
@@ -14,6 +13,7 @@ module.exports = main
 function main (options, done) {
   const token = options.token
   const filename = options.filename
+  const publication=options.publication
 
   assert.equal(typeof token, 'string', 'markdown-to-medium: token should be a string')
 
@@ -57,23 +57,43 @@ function main (options, done) {
     }
 
     console.log(`Authenticated as ${user.username}`.blue)
-    client.createPost({
-      userId: user.id,
-      title,
-      tags,
-      content,
-      canonicalUrl,
-      contentFormat: 'markdown',
-      publishStatus: 'draft'
-    }, (err, post) => {
-      if (err) {
-        throw new Error(err)
-      }
-
-      console.log(
-        `Draft post "${title}" published to Medium.com`.green
-      )
-      open(post.url)
-    })
+    const options={
+        userId: user.id,
+        title,
+        tags,
+        content,
+        canonicalUrl,
+        contentFormat: 'markdown',
+        publishStatus: 'draft'
+    };
+    const successMsg=`Draft post "${title}" published to Medium.com`.green;
+    if(publication){
+        client.getPublicationsForUser({userId:user.id}, (err, publications)=>{
+          if (err) {
+            throw new Error(err)
+          }
+          const myPub=publications.filter((val)=>{return val.name===publication});
+          if(myPub.length===0){
+            throw new Error("No publication by that name!");
+          }
+          client.createPostInPublication(Object.assign(options, {publicationId:myPub[0].id}), (err, post) => {
+            if (err) {
+                throw new Error(err)
+            }
+            console.log(successMsg)
+            open(post.url)
+          })
+      })
+    }
+    else{
+      client.createPost(options, (err, post) => {
+        if (err) {
+          throw new Error(err)
+        }
+        console.log(successMsg)
+        open(post.url)
+      })
+    }
+    
   })
 }
