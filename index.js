@@ -13,7 +13,7 @@ module.exports = main
 function main (options, done) {
   const token = options.token
   const filename = options.filename
-  const publication=options.publication
+  const publication = options.publication
 
   assert.equal(typeof token, 'string', 'markdown-to-medium: token should be a string')
 
@@ -35,7 +35,7 @@ function main (options, done) {
   const matter = frontMatter(src)
   const title = matter.attributes.title
   const tags = matter.attributes.tags
-  const canonicalUrl = options.canonicalUrl || ""
+  const canonicalUrl = options.canonicalUrl || ''
 
   let content = `
   # ${title}
@@ -55,35 +55,37 @@ function main (options, done) {
     }
 
     console.log(`Authenticated as ${user.username}`.blue)
-    const options={
-        userId: user.id,
-        title,
-        tags,
-        content,
-        canonicalUrl,
-        contentFormat: 'markdown',
-        publishStatus: 'draft'
-    };
-    const successMsg=`Draft post "${title}" published to Medium.com`.green;
-    if(publication){
-        client.getPublicationsForUser({userId:user.id}, (err, publications)=>{
+
+    const options = {
+      userId: user.id,
+      title,
+      tags,
+      content,
+      canonicalUrl,
+      contentFormat: 'markdown',
+      publishStatus: 'draft'
+    }
+
+    const successMsg = `Draft post "${title}" published to Medium.com`.green
+
+    if (publication) {
+      client.getPublicationsForUser({userId: user.id}, (err, publications) => {
+        if (err) {
+          throw new Error(err)
+        }
+        const myPub = publications.filter((val) => { return val.name === publication })
+        if (myPub.length === 0) {
+          throw new Error('No publication by that name!')
+        }
+        client.createPostInPublication(Object.assign(options, {publicationId: myPub[0].id}), (err, post) => {
           if (err) {
             throw new Error(err)
           }
-          const myPub=publications.filter((val)=>{return val.name===publication});
-          if(myPub.length===0){
-            throw new Error("No publication by that name!");
-          }
-          client.createPostInPublication(Object.assign(options, {publicationId:myPub[0].id}), (err, post) => {
-            if (err) {
-                throw new Error(err)
-            }
-            console.log(successMsg)
-            open(post.url)
-          })
+          console.log(successMsg)
+          open(post.url)
+        })
       })
-    }
-    else{
+    } else {
       client.createPost(options, (err, post) => {
         if (err) {
           throw new Error(err)
@@ -92,6 +94,5 @@ function main (options, done) {
         open(post.url)
       })
     }
-    
   })
 }
