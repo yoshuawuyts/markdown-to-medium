@@ -22,6 +22,7 @@ Options:
   -h, --help        Output usage information
   -v, --version     Output version number
   -t, --token       Pass in the user token, stored after first use
+  -u, --canoncialUrl  Add a cross-reference to the original posting Url
 
 Examples:
   $ markdown-to-medium ./foobar.md   # Publish markdown to medium
@@ -36,12 +37,15 @@ markdown:
 ```md
 ---
 title: 'How to light a tire fire'
+canonicalUrl: 'https://wittywords.com/how-to-light-a-fire'
 created: '6-20-2016'
 ---
 
 Now put some of the best words here.
 You can do it, you're witty and smart and charming and
 ```
+
+The `canonicalUrl` tag is optional.
 
 ## Installation
 ```sh

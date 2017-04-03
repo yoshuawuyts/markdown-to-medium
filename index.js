@@ -37,7 +37,7 @@ function main (options, done) {
   const matter = frontMatter(src)
   const title = matter.attributes.title
   const tags = matter.attributes.tags
-  const canonicalUrl = options.canonicalUrl || ""
+  const canonicalUrl = options.canonicalUrl || matter.attributes.canonicalUrl || ""
 
   let content = `
   # ${title}
