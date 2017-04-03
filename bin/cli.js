@@ -24,7 +24,8 @@ const opts = cliclopts([
   { name: 'canonicalUrl', abbr: 'u', string: true },
   { name: 'publication', string: true },
   { name: 'title', string: true },
-  { name: 'tags', alias: ['tag'] }
+  { name: 'tags', alias: ['tag'] },
+  { name: 'license', abbr: 'l', string: true }
 ])
 
 const argv = minimist(process.argv.slice(2), opts.options())

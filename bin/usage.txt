@@ -6,6 +6,7 @@ Options:
   -t, --token       Pass in the user token, stored after first use
   -i, --id          Pass in the user id
   -u, --canonicalUrl  Add a cross-reference to the original url for post
+  -l, --license     Pass in the license
   --title           Pass in the title
   --tags            Pass in tags
   --publication     Publish to a Medium publication

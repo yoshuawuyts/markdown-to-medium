@@ -24,6 +24,7 @@ Options:
   -t, --token       Pass in the user token, stored after first use
   -i, --id          Pass in the user id
   -u, --canonicalUrl  Add a cross-reference to the original url for post
+  -l, --license     Pass in the license
   --title           Pass in the title
   --tags            Pass in tags
   --publication     Publish to a Medium publication
@@ -39,6 +40,13 @@ Docs: https://github.com/yoshuawuyts/markdown-to-medium
 Bugs: https://github.com/yoshuawuyts/markdown-to-medium/issues
 ```
 
+### License
+
+You can specify a license for your draft. It must be one of these options:
+`all-rights-reserved`, `cc-40-by`, `cc-40-by-nd`, `cc-40-by-sa`, `cc-40-by-nc`,
+`cc-40-by-nc-nd`, `cc-40-by-nc-sa`, `cc-40-zero`, `public-domain`.
+
+
 ## Metadata
 
 To get the correct title and date to show up without using options, you can
@@ -51,14 +59,14 @@ created: '6-20-2016'
 publication: 'Intention and Integrity'
 canonicalUrl: 'https://example.com/how-to-light-a-tire-fire'
 tags: ['fire', 'tires']
+license: 'public-domain'
 ---
 
 Now put some of the best words here.
 You can do it, you're witty and smart and charming and
 ```
 
-Note that `tags`, `canonicalUrl`, and `publication` are optional, and that
-`created` is not passed through to Medium.
+Note that `created` is not passed through to Medium.
 
 If there is no `YAML` frontmatter, you can also specify the title using a first
 level markdown header, such as `# Title`, on the first line of the file.

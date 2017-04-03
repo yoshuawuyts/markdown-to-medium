@@ -10,6 +10,32 @@ require('colors') // I guess this is extending strings :/
 
 module.exports = main
 
+function checkLicense (license) {
+  if (license) {
+    const validLicenses = [
+      'all-rights-reserved',
+      'cc-40-by',
+      'cc-40-by-nd',
+      'cc-40-by-sa',
+      'cc-40-by-nc',
+      'cc-40-by-nc-nd',
+      'cc-40-by-nc-sa',
+      'cc-40-zero',
+      'public-domain'
+    ]
+
+    if (validLicenses.includes(license)) {
+      return license
+    } else {
+      throw new Error(`That is not a valid license.
+
+      Options:
+        ${validLicenses.join(',\n\t')}
+      `)
+    }
+  }
+}
+
 // publish a markdown file to medium
 function main (options, done) {
   const token = options.token
@@ -37,6 +63,7 @@ function main (options, done) {
   const tags = options.tags || matter.attributes.tags
   const publication = options.publication || matter.attributes.publication
   const canonicalUrl = options.canonicalUrl || matter.attributes.canonicalUrl || ''
+  const license = checkLicense(options.license || matter.attributes.license)
 
   var content = `
   # ${title}
@@ -69,6 +96,7 @@ function main (options, done) {
       tags,
       content,
       canonicalUrl,
+      license,
       contentFormat: 'markdown',
       publishStatus: 'draft'
     }
