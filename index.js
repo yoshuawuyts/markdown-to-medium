@@ -1,4 +1,4 @@
-//from https://github.com/jxnblk/writing/blob/gh-pages/medium.js
+// from https://github.com/jxnblk/writing/blob/gh-pages/medium.js
 const frontMatter = require('front-matter')
 const medium = require('medium-sdk')
 const assert = require('assert')
