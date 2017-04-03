@@ -48,6 +48,7 @@ use `YAML` frontmatter in your markdown:
 ---
 title: 'How to light a tire fire'
 created: '6-20-2016'
+publication: 'Intention and Integrity'
 canonicalUrl: 'https://example.com/how-to-light-a-tire-fire'
 tags: ['fire', 'tires']
 ---
@@ -56,8 +57,8 @@ Now put some of the best words here.
 You can do it, you're witty and smart and charming and
 ```
 
-Note that `tags` and `canonicalUrl` are optional, and that `created` is not
-passed through to Medium.
+Note that `tags`, `canonicalUrl`, and `publication` are optional, and that
+`created` is not passed through to Medium.
 
 ## Installation
 ```sh
