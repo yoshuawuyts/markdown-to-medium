@@ -37,7 +37,7 @@ function main (options, done) {
   const publication = options.publication || matter.attributes.publication
   const canonicalUrl = options.canonicalUrl || ''
 
-  let content = `
+  var content = `
   # ${title}
 
   ${matter.body}
