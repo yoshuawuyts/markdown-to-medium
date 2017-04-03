@@ -1,6 +1,6 @@
 {
   "name": "markdown-to-medium",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Publish markdown to medium",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "markdown-to-medium": "./bin/cli.js"
   },
   "coordinates": [
-    45.5194962,
-    -73.5804556
+    45.5195033,
+    -73.5804696
   ]
 }
