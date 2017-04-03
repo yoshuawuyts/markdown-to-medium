@@ -22,31 +22,46 @@ Options:
   -h, --help        Output usage information
   -v, --version     Output version number
   -t, --token       Pass in the user token, stored after first use
+  -i, --id          Pass in the user id
+  -u, --canonicalUrl  Add a cross-reference to the original url for post
+  --title           Pass in the title
+  --tags            Pass in tags
   --publication     Publish to a Medium publication
 
 Examples:
-  $ markdown-to-medium ./foobar.md   # Publish markdown to medium
+  $ markdown-to-medium ./foobar.md
+  # Publish markdown to medium
+
+  $ markdown-to-medium ./foobar.md  --tags={tag1,tag2} --title="Hello world"
+  # Publish markdown to medium
 
 Docs: https://github.com/yoshuawuyts/markdown-to-medium
 Bugs: https://github.com/yoshuawuyts/markdown-to-medium/issues
 ```
 
-## Meta data
-To get the correct title and date to show up, use `YAML` frontmatter in your
-markdown:
+## Metadata
+
+To get the correct title and date to show up without using options, you can
+use `YAML` frontmatter in your markdown:
+
 ```md
 ---
 title: 'How to light a tire fire'
 created: '6-20-2016'
+canonicalUrl: 'https://example.com/how-to-light-a-tire-fire'
+tags: ['fire', 'tires']
 ---
 
 Now put some of the best words here.
 You can do it, you're witty and smart and charming and
 ```
 
+Note that `tags` and `canonicalUrl` are optional, and that `created` is not
+passed through to Medium.
+
 ## Installation
 ```sh
-$ npm install markdown-to-medium
+$ npm install --global markdown-to-medium
 ```
 
 ## See Also
