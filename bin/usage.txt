@@ -5,9 +5,16 @@ Options:
   -v, --version     Output version number
   -t, --token       Pass in the user token
   -i, --id          Pass in the user id
+  -u, --canonicalUrl  Add a cross-reference to the original url for post
+  --title           Pass in the title
+  --tags            Pass in tags
 
 Examples:
-  $ markdown-to-medium ./foobar.md   # Publish markdown to medium
+  $ markdown-to-medium ./foobar.md
+  # Publish markdown to medium
+
+  $ markdown-to-medium ./foobar.md  --tags={tag1,tag2} --title="Hello world"
+  # Publish markdown to medium
 
 Docs: https://github.com/yoshuawuyts/markdown-to-medium
 Bugs: https://github.com/yoshuawuyts/markdown-to-medium/issues
