@@ -17,8 +17,6 @@ function main (options, done) {
 
   assert.equal(typeof token, 'string', 'markdown-to-medium: token should be a string')
 
-  const slug = filename.replace(/^src\/posts\/|\.md$/g, '')
-
   const client = new medium.MediumClient({
     clientId: token,
     clientSecret: token
