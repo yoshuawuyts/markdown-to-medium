@@ -79,7 +79,7 @@ function main (options, done) {
 
   if (canonicalUrl.length) {
     content += `
-    *Cross-posted from [${canonicalUrl}](${canonicalUrl})*
+*Cross-posted from [${canonicalUrl}](${canonicalUrl}).*
     `
   }
 
