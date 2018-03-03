@@ -33,7 +33,7 @@ Examples:
   $ markdown-to-medium ./foobar.md
   # Publish markdown to medium
 
-  $ markdown-to-medium ./foobar.md  --tags={tag1,tag2} --title="Hello world"
+  $ markdown-to-medium ./foobar.md  --tags="tag1,tag2" --title="Hello world"
   # Publish markdown to medium
 
 Docs: https://github.com/yoshuawuyts/markdown-to-medium
