@@ -60,7 +60,7 @@ function main (options, done) {
 
   const matter = frontMatter(src)
   let title = options.title || matter.attributes.title
-  const tags = options.tags || matter.attributes.tags
+  const tags = (options.tags && options.tags.split(',')) || matter.attributes.tags
   const publication = options.publication || matter.attributes.publication
   const canonicalUrl = options.canonicalUrl || matter.attributes.canonicalUrl || ''
   const license = checkLicense(options.license || matter.attributes.license)
