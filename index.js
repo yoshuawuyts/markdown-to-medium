@@ -55,7 +55,7 @@ function main (options, done) {
   try {
     src = fs.readFileSync(filename, 'utf8')
   } catch (e) {
-    throw new Error('Could not read file from /src/posts/' + filename)
+    throw new Error('Could not read file ' + filename)
   }
 
   const matter = frontMatter(src)
